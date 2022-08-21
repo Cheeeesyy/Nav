@@ -1,0 +1,166 @@
+@import url("https://www.fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Muli", sans-serif;
+}
+
+:root {
+    --color: #222322;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--color);
+}
+
+.navigation {
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+.navigation ul {
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    color: var(--color);
+    transition: .5s;
+}
+
+.navigation ul li.active a .icon{
+    transform: translateY(-35px);
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: var(--color);
+    font-weight: bold;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(15px);
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+    }
+
+    66% {
+        transform: scale(.66);
+    }
+
+    100% {
+        transform: scale(1);
+    } 
+}
+
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: greenyellow;
+    border-radius: 50%;
+    border: 5px solid var(--color);
+    transition: .5s;
+    /* animation: fadeIn 0.5s ease 0s normal forwards 1; */
+}
+
+.indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--color);
+}
+
+.indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--color);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(70px * 0));
+    background: red;
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(70px * 1));
+    background: orange;
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(70px * 2));
+    background: yellow;
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(70px * 3));
+    background: green;
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(70px * 4));
+    background: blue;
+}
